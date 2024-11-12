@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Actividad LED</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Panel de Actividad LED</h1>
+            <button id="refresh-button" class="refresh-button">Actualizar</button>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h2 class="card-title">Registro de Activaciones el dia de hoy</h2>
+                <div id="chart-container" class="chart-container"></div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Resumen de actividad</h2>
+                <div class="stat">
+                    <div class="stat-label">Hoy</div>
+                    <div class="stat-value" id="total-count">0</div>
+                    <div class="stat-unit">veces activado</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Esta Semana</div>
+                    <div class="stat-value" id="weekly-total-count">0</div>
+                    <div class="stat-unit">veces activado</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Tiempo Total Encendido</div>
+                    <div class="stat-value" id="total-time">0</div>
+                    <div class="stat-unit">minutos</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Actividad Pico</h2>
+                <div class="stat">
+                    <div class="stat-label">Hora Más Activa</div>
+                    <div class="stat-value" id="peak-hour">N/A</div>
+                    <div class="stat-unit">hora local</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Porcentaje de tiempo Activo</div>
+                    <div class="stat-value" id="active-percentage">0</div>
+                    <div class="stat-unit">% del día</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Secuencia Más Larga</div>
+                    <div class="stat-value" id="longest-sequence">0</div>
+                    <div class="stat-unit">activaciones seguidas</div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Ultimas 10 veces que se encendio</h2>
+                <div class="activity-log">
+                    <ul id="times-list"></ul>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Estadísticas Adicionales</h2> 
+                <div class="stat">
+                    <div class="stat-label">Promedio Diario</div>
+                    <div class="stat-value" id="daily-average">0</div>
+                    <div class="stat-unit">activaciones/día</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Hora Más Tranquila</div>
+                    <div class="stat-value" id="quiet-hour">N/A</div>
+                    <div class="stat-unit">hora local</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Tiempo Entre Activaciones</div>
+                    <div class="stat-value" id="avg-interval">N/A</div>
+                    <div class="stat-unit">minutos en promedio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

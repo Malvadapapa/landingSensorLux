@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "junction.proxy.rlwy.net",
+            "port": 48402,
+            "driver": "PostgreSQL",
+            "database": "railway",
+            "password": "TEyDcvdPSGfuMWcfMocSETeTblbPmcnm",
+            "username": "postgres",
+            "name": "BDD sensor lux websocket"
+        }
+    ]
+}
