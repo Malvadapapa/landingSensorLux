@@ -9,12 +9,15 @@ const marginBottom = 30;
 const marginLeft = 40;
 
 
-const color = d => {
-  if (d >= 0 && d < 6) return 'blue'; // Noche
-  if (d >= 6 && d < 12) return 'yellow'; // Mañana
-  if (d >= 12 && d < 18) return 'orange'; // Tarde
-  return 'blue'; // Noche
-};
+// Escala de colores actualizada
+const color = d3.scaleLinear()
+  .domain([0, 6, 12, 18, 24])
+  .range(['#1a237e', // Azul muy oscuro (madrugada)
+          '#42a5f5', // Azul claro (mañana)  
+          '#ffd54f', // Amarillo suave (mediodía)
+          '#ff9800', // Naranja (tarde)
+          '#1a237e'  // Azul muy oscuro (noche)
+        ]);
 
 const fetchDataAndRenderChart = async () => {
   try {
@@ -80,11 +83,13 @@ const fetchDataAndRenderChart = async () => {
       .attr("viewBox", [0, 0, width, height])
       .attr("style", "max-width: 100%; height: auto;");
 
+
+    // Leyenda actualizada con los nuevos colores
     const legendData = [
-      { label: "Noche (00:00-06:00)", color: "blue" },
-      { label: "Mañana (06:00-12:00)", color: "yellow" },
-      { label: "Tarde (12:00-18:00)", color: "orange" },
-      { label: "Noche (18:00-24:00)", color: "blue" }
+      { label: "Madrugada (00:00-06:00)", color: "#1a237e" },
+      { label: "Mañana (06:00-12:00)", color: "#42a5f5" },
+      { label: "Mediodía (12:00-18:00)", color: "#ffd54f" },
+      { label: "Tarde (18:00-24:00)", color: "#ff9800" }
     ];
 
 
