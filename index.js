@@ -52,7 +52,9 @@ const fetchDataAndRenderChart = async () => {
     const weekAgo = new Date(today);
     weekAgo.setDate(today.getDate() - 7);
 
-    const weeklyData = processedData.filter(d => d.timestamp >= weekAgo && d.timestamp < today);
+    const weeklyData = processedData.filter(d => 
+      d.timestamp >= weekAgo && d.timestamp <= now
+    );
 
     const dailyHourlyCounts = d3.rollup(
       filteredData.filter(d => d.status), 
